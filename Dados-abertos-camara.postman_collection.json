@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "91d41342-dde9-4234-9806-f3a98eb3eae3",
+		"name": "Dados-abertos-camara",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31619838",
+		"_collection_link": "https://bold-star-438942.postman.co/workspace/minha_workspace~6713af6c-bf21-4ed2-ae8f-e70f4d07c0ff/collection/31619838-91d41342-dde9-4234-9806-f3a98eb3eae3?action=share&source=collection_link&creator=31619838"
+	},
+	"item": [
+		{
+			"name": "Consulta-dados-camara",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[0].id;\r",
+							"    pm.environment.set(\"id0\", jsonData);\r",
+							"    console.log();\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[0].nome;\r",
+							"    pm.environment.set(\"nome0\", jsonData);\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[0].idLegislatura;\r",
+							"    pm.environment.set(\"idLegislatura\", jsonData);\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[1].id;\r",
+							"    pm.environment.set(\"id1\", jsonData);\r",
+							"    console.log();\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[1].nome;\r",
+							"    pm.environment.set(\"nome1\", jsonData);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[2].id;\r",
+							"    pm.environment.set(\"id2\", jsonData);\r",
+							"    console.log();\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[2].nome;\r",
+							"    pm.environment.set(\"nome2\", jsonData);\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[3].id;\r",
+							"    pm.environment.set(\"id3\", jsonData);\r",
+							"    console.log();\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[3].nome;\r",
+							"    pm.environment.set(\"nome3\", jsonData);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[4].id;\r",
+							"    pm.environment.set(\"id4\", jsonData);\r",
+							"    console.log();\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[4].nome;\r",
+							"    pm.environment.set(\"nome4\", jsonData);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id0\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].id;\r",
+							"    pm.expect(jsonData).to.eql(\"584\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].nome;\r",
+							"    pm.expect(jsonData).to.eql(\"Federação Brasil da Esperança - Fe Brasil\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(\"57\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id1\", function () {\r",
+							"    var jsonData = pm.response.json().dados[1].id;\r",
+							"    pm.expect(jsonData).to.eql(\"585\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome1\", function () {\r",
+							"    var jsonData = pm.response.json().dados[1].nome;\r",
+							"    pm.expect(jsonData).to.eql(\"Federação PSDB CIDADANIA\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(\"57\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id2\", function () {\r",
+							"    var jsonData = pm.response.json().dados[2].id;\r",
+							"    pm.expect(jsonData).to.eql(\"586\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome2\", function () {\r",
+							"    var jsonData = pm.response.json().dados[2].nome;\r",
+							"    pm.expect(jsonData).to.eql(\"Federação PSOL REDE\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(\"57\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id3\", function () {\r",
+							"    var jsonData = pm.response.json().dados[3].id;\r",
+							"    pm.expect(jsonData).to.eql(\"587\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome3\", function () {\r",
+							"    var jsonData = pm.response.json().dados[3].nome;\r",
+							"    pm.expect(jsonData).to.eql(\"MDB, PSD, REPUBLICANOS, PODE\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(\"57\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id4\", function () {\r",
+							"    var jsonData = pm.response.json().dados[4].id;\r",
+							"    pm.expect(jsonData).to.eql(\"588\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome4\", function () {\r",
+							"    var jsonData = pm.response.json().dados[4].nome;\r",
+							"    pm.expect(jsonData).to.eql(\"UNIÃO, PP, Federação PSDB CIDADANIA, PDT, AVANTE, SOLIDARIEDADE, PRD\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(\"57\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar bloco por id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest(\"https://dadosabertos.camara.leg.br/api/v2/blocos?ordem=ASC&ordenarPor=nome\", function (err, response) {\r",
+							"    const jsonData = response.json().dados[0].id;\r",
+							"    pm.environment.set(\"id\", jsonData);\r",
+							"\r",
+							"\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome\", function () {\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(\"Federação Brasil da Esperança - Fe Brasil\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_584",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id\", function () {\r",
+							"    var id0 = pm.environment.get(\"id0\");\r",
+							"    var jsonData = pm.response.json().dados.id;\r",
+							"    pm.expect(jsonData).to.eql(id0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var nome0 = pm.environment.get(\"nome0\");\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(nome0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados.idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id0}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id0}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_585",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id\", function () {\r",
+							"    var id1 = pm.environment.get(\"id1\");\r",
+							"    var jsonData = pm.response.json().dados.id;\r",
+							"    pm.expect(jsonData).to.eql(id1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var nome1 = pm.environment.get(\"nome1\");\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(nome1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados.idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id1}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_586",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id\", function () {\r",
+							"    var id2 = pm.environment.get(\"id2\");\r",
+							"    var jsonData = pm.response.json().dados.id;\r",
+							"    pm.expect(jsonData).to.eql(id2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var nome2 = pm.environment.get(\"nome2\");\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(nome2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados.idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id2}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_587",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id\", function () {\r",
+							"    var id3 = pm.environment.get(\"id3\");\r",
+							"    var jsonData = pm.response.json().dados.id;\r",
+							"    pm.expect(jsonData).to.eql(id3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var nome3 = pm.environment.get(\"nome3\");\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(nome3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados.idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id3}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_588",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo id\", function () {\r",
+							"    var id4 = pm.environment.get(\"id4\");\r",
+							"    var jsonData = pm.response.json().dados.id;\r",
+							"    pm.expect(jsonData).to.eql(id4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo nome0\", function () {\r",
+							"    var nome4 = pm.environment.get(\"nome4\");\r",
+							"    var jsonData = pm.response.json().dados.nome;\r",
+							"    pm.expect(jsonData).to.eql(nome4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o campo idLegislatura\", function () {\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados.idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{id4}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{id4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todos_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Valdidar Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o id 584\", function () {\r",
+							"    var id0 = pm.environment.get(\"id0\");\r",
+							"    var jsonData = pm.response.json().dados[0].id;\r",
+							"    pm.expect(jsonData).to.eql(id0);\r",
+							"    var nome0 = pm.environment.get(\"nome0\");\r",
+							"    var jsonData = pm.response.json().dados[0].nome;\r",
+							"    pm.expect(jsonData).to.eql(nome0);\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados[0].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o id 585\", function () {\r",
+							"    var id1 = pm.environment.get(\"id1\");\r",
+							"    var jsonData = pm.response.json().dados[1].id;\r",
+							"    pm.expect(jsonData).to.eql(id1);\r",
+							"    var nome1 = pm.environment.get(\"nome1\");\r",
+							"    var jsonData = pm.response.json().dados[1].nome;\r",
+							"    pm.expect(jsonData).to.eql(nome1);\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados[1].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o id 586\", function () {\r",
+							"    var id2 = pm.environment.get(\"id2\");\r",
+							"    var jsonData = pm.response.json().dados[2].id;\r",
+							"    pm.expect(jsonData).to.eql(id2);\r",
+							"    var nome2 = pm.environment.get(\"nome2\");\r",
+							"    var jsonData = pm.response.json().dados[2].nome;\r",
+							"    pm.expect(jsonData).to.eql(nome2);\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados[2].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o id 587\", function () {\r",
+							"    var id3 = pm.environment.get(\"id3\");\r",
+							"    var jsonData = pm.response.json().dados[3].id;\r",
+							"    pm.expect(jsonData).to.eql(id3);\r",
+							"    var nome3 = pm.environment.get(\"nome3\");\r",
+							"    var jsonData = pm.response.json().dados[3].nome;\r",
+							"    pm.expect(jsonData).to.eql(nome3);\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados[3].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validar o id 588\", function () {\r",
+							"    var id4 = pm.environment.get(\"id3\");\r",
+							"    var jsonData = pm.response.json().dados[3].id;\r",
+							"    pm.expect(jsonData).to.eql(id4);\r",
+							"    var nome4 = pm.environment.get(\"nome3\");\r",
+							"    var jsonData = pm.response.json().dados[3].nome;\r",
+							"    pm.expect(jsonData).to.eql(nome4);\r",
+							"    var idLegislatura = pm.environment.get(\"idLegislatura\");\r",
+							"    var jsonData = pm.response.json().dados[3].idLegislatura;\r",
+							"    pm.expect(jsonData).to.eql(idLegislatura);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
